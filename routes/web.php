@@ -34,6 +34,7 @@ Route::get("/addcourse", [HomeController::class,"addcourse"]);
 Route::get("/showcourse", [HomeController::class,"showcourse"]);
 Route::get('/deletecourse/{id}',[HomeController::class,'deletecourse']);
 Route::post('/createcourse',[HomeController::class,'createcourse']);
+Route::get('/module_details/{id}',[HomeController::class,'module_details']);
 
 
 

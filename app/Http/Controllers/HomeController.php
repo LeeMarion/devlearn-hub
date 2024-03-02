@@ -11,14 +11,17 @@ class HomeController extends Controller
 {
     public function home()
     {
-        return view("user.home");
+        $data = Module::all();
+
+        return view("user.home", compact('data'));
     }
 
     public function index()  {
         if (Auth::id()){
             $usertype = Auth()->user()->usertype;
             if ($usertype == '0'){
-                return view("user.home");
+                $data = Module::all();
+                return view("user.home", compact('data'));
             }elseif ($usertype == '1') {
                 return view('admin.admin');
             }else {
@@ -40,6 +43,7 @@ class HomeController extends Controller
         $data = new Module();
         $data->modulename = $request->name;
         
+        
 
         $image = $request->image;
         if ($image) {
@@ -49,7 +53,12 @@ class HomeController extends Controller
         }
 
         $data->save();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Module Added Successfully');
+    }
+
+    public function module_details($id){
+        $data = Module::find($id);
+        return view('user.module_details', compact('data'));
     }
 
     public function deletecourse($id){

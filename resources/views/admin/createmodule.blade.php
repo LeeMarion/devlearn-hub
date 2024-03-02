@@ -47,6 +47,12 @@
           <!-- partial -->
           <div class="main-panel">
           <div class="content-wrapper">
+            @if(session()->has('message'))
+            <div class="alert alert-success">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            {{session()->get('message')}}
+            </div>
+            @endif
             <div class="div-center">
               <center><h1 class="font_size">Add Module</h1></center>
             </div>
@@ -76,13 +82,13 @@
 
     <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
-        @include('admin.sidebar')
+        
         <!-- Sidebar Navigation end-->
-        <div class="container-fluid page-body-wrapper">
+        
           <!-- partial:partials/_navbar.html -->
           <nav class="navbar p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-              <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+              <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/lg.jpg" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
               
@@ -99,11 +105,7 @@
             </div>
           </nav>
   
-          <div class="main-panel">
-          <div class="content-wrapper">
           
-        </div>
-      </div>
     
   </body>
 </html>
